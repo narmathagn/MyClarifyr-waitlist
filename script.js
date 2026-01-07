@@ -28,7 +28,7 @@ function scrollToWaitlist() {
 }
 
 function scrollToHowItWorks() {
-    document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
 }
 
 // Waitlist form handling
@@ -275,3 +275,18 @@ if (feedbackForm) {
     });
 }
 
+
+// Reveal Animations on Scroll
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+const revealElements = document.querySelectorAll('.reveal');
+revealElements.forEach(el => revealObserver.observe(el));

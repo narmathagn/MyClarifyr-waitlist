@@ -85,60 +85,65 @@
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Get started in 3 simple steps</p>
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">🌐</div>
-                    <h3 class="step-title">Open any webpage</h3>
-                    <p class="step-description">Turn on MyClarifyr with a single click</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">🤖</div>
-                    <h3 class="step-title">We read for you</h3>
-                    <p class="step-description">MyClarifyr reads and understands the page content</p>
-                </div>
-                <div class="step-arrow">→</div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">✨</div>
-                    <h3 class="step-title">Get clear explanations</h3>
-                    <p class="step-description">Simple explanation with examples, visuals, and optional voice</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Combined Features Section (Flow + Orbit) -->
+    <section class="combined-features" id="features">
+        <div class="container expanded-container">
+            <div class="split-layout">
+                <!-- Left: How It Works (Vertical Flow) -->
+                <div class="col-flow">
+                    <h2 class="section-title text-left">How It Works</h2>
+                    <p class="section-subtitle text-left">3 simple steps to clarity.</p>
 
-    <!-- Who Is It For Section -->
-    <section class="who-is-it-for" id="who-is-it-for">
-        <div class="container">
-            <h2 class="section-title">Who Is It For?</h2>
-            <div class="audience-grid">
-                <div class="audience-card">
-                    <div class="audience-icon">🎓</div>
-                    <h3>School & College Students</h3>
-                    <p>Make learning easier and faster</p>
+                    <div class="flow-timeline">
+                        <div class="flow-line"></div>
+
+                        <div class="flow-step reveal">
+                            <div class="flow-marker">1</div>
+                            <div class="flow-content">
+                                <h3>Open any webpage</h3>
+                                <p>Turn on MyClarifyr with a single click</p>
+                            </div>
+                        </div>
+
+                        <div class="flow-step reveal stagger-1">
+                            <div class="flow-marker">2</div>
+                            <div class="flow-content">
+                                <h3>We read for you</h3>
+                                <p>MyClarifyr reads and understands the page content</p>
+                            </div>
+                        </div>
+
+                        <div class="flow-step reveal stagger-2">
+                            <div class="flow-marker">3</div>
+                            <div class="flow-content">
+                                <h3>Get clear explanations</h3>
+                                <p>Simple explanation with examples, visuals, and optional voice</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="audience-card">
-                    <div class="audience-icon">📚</div>
-                    <h3>Exam Preparation</h3>
-                    <p>Understand concepts quickly for better results</p>
-                </div>
-                <div class="audience-card">
-                    <div class="audience-icon">👨‍💻</div>
-                    <h3>Developers</h3>
-                    <p>Grasp technical blogs and documentation easily</p>
-                </div>
-                <div class="audience-card">
-                    <div class="audience-icon">🔍</div>
-                    <h3>Online Learners</h3>
-                    <p>Anyone doing research or learning online</p>
+
+                <!-- Right: Who Is It For (Orbit System) -->
+                <div class="col-orbit">
+                    <h2 class="section-title text-center">Who Is It For?</h2>
+                    <p class="section-subtitle text-center">Empowering everyone.</p>
+
+                    <div class="local-orbit-system">
+                        <div class="orbit-center">
+                            <span>You</span>
+                        </div>
+
+                        <!-- Rings -->
+                        <div class="local-ring ring-1"></div>
+                        <div class="local-ring ring-2"></div>
+                        <div class="local-ring ring-3"></div>
+
+                        <!-- Orbiting Chips -->
+                        <div class="orbit-item item-student">🎓 Students</div>
+                        <div class="orbit-item item-dev">👨‍💻 Developers</div>
+                        <div class="orbit-item item-research">🔍 Researchers</div>
+                        <div class="orbit-item item-learner">📚 Learners</div>
+                    </div>
                 </div>
             </div>
         </div>
