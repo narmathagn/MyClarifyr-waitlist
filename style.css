@@ -10,12 +10,12 @@
     --text-secondary: #6b7280;
     --border-color: #e5e7eb;
 
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
-    --spacing-xl: 6rem;
+    /* Spacing - Compact Mode */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2.5rem;
 
     /* Typography */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -327,7 +327,7 @@ section {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
 }
@@ -364,120 +364,322 @@ section {
 }
 
 /* How It Works Section */
-.steps-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-md);
-    flex-wrap: wrap;
-    max-width: 1000px;
+/* Combined Features Section (Split Layout) */
+/* Combined Features Section (Split Layout) */
+/* Combined Features Section (Split Layout) */
+.combined-features {
+    padding: var(--spacing-md) 0;
+    /* Shrink vertical padding */
+    overflow-x: clip;
+}
+
+.expanded-container {
+    max-width: 1300px;
+    padding: 0 var(--spacing-md);
     margin: 0 auto;
 }
 
-.step-card {
-    background: white;
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    text-align: center;
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+/* Left Column: Vertical Flow */
+.col-flow {
+    padding-right: var(--spacing-md);
+}
+
+.text-left {
+    text-align: left;
+}
+
+.flow-timeline {
     position: relative;
-    transition: all 0.3s ease;
+    padding-left: 20px;
+    margin-top: var(--spacing-lg);
 }
 
-.step-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-xl);
-}
-
-.step-number {
+.flow-line {
     position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
+    left: 15px;
+    top: 50px;
+    bottom: 50px;
+    width: 2px;
+    background: linear-gradient(to bottom, #667eea 0%, rgba(102, 126, 234, 0.1) 100%);
+    z-index: 0;
+}
+
+.flow-step {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+    /* Reduced from lg */
+    z-index: 1;
+}
+
+.flow-step:last-child {
+    margin-bottom: 0;
+}
+
+.flow-marker {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 2px solid #667eea;
+    border-radius: 50%;
+    color: #667eea;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-md);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+}
+
+.flow-content h3 {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.flow-content p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+}
+
+/* Right Column: Orbit System */
+/* Right Column: Orbit System */
+.col-orbit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    /* Reduced min-height */
+    position: relative;
+    /* User Request: Background color like the first section (Hero Gradient) */
     background: var(--primary-gradient);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-md);
+    /* Tighten padding */
     color: white;
+}
+
+/* Overriding text colors for the dark background */
+.col-orbit .section-title {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: white;
+}
+
+.col-orbit .section-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.local-orbit-system {
+    position: relative;
+    /* Increased container slightly to ensure chips fit, but rings will be smaller */
+    width: 360px;
+    height: 360px;
+    margin-top: var(--spacing-sm);
+}
+
+.orbit-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    /* Contrast Center */
+    background: white;
+    color: #667eea;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: var(--font-size-md);
+    font-size: 1rem;
+    box-shadow: var(--shadow-xl);
+    z-index: 10;
 }
 
-.step-icon {
-    font-size: 3rem;
-    margin: var(--spacing-md) 0;
+.local-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* Contrast Rings */
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.step-title {
-    font-size: var(--font-size-lg);
+/* Tighter Rings to keep chips inside */
+.ring-1 {
+    width: 120px;
+    height: 120px;
+}
+
+.ring-2 {
+    width: 200px;
+    height: 200px;
+}
+
+.ring-3 {
+    width: 280px;
+    height: 280px;
+}
+
+/* Orbiting Chips */
+.orbit-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Glassmorphism Chips */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: var(--spacing-sm);
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform-origin: 0 0;
+    /* Important for orbital calculation */
 }
 
-.step-description {
-    color: var(--text-secondary);
+/* Animations defined below */
+.item-student {
+    animation: orbit 15s linear infinite;
 }
 
-.step-arrow {
-    font-size: 2rem;
-    color: #667eea;
-    font-weight: 700;
+.item-dev {
+    animation: orbit 20s linear infinite reverse;
 }
 
-/* Who Is It For Section */
-.who-is-it-for {
-    background: var(--bg-gray);
+.item-research {
+    animation: orbit 25s linear infinite;
 }
 
-.audience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
-    max-width: 1000px;
-    margin: 0 auto;
+.item-learner {
+    animation: orbit 18s linear infinite reverse;
 }
 
-.audience-card {
-    background: white;
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
+/* Custom keyframes for local orbit to avoid conflicts */
+@keyframes orbit {
+    from {
+        transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+    }
 }
 
-.audience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+/* Assign Radii - Must match ring radius (width / 2) */
+.item-student {
+    --orbit-radius: 60px;
 }
 
-.audience-icon {
-    font-size: 3.5rem;
-    display: block;
-    margin-bottom: var(--spacing-md);
+.item-dev {
+    --orbit-radius: 100px;
 }
 
-.audience-card h3 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-sm);
+.item-research {
+    --orbit-radius: 140px;
+    /* 280px / 2 */
 }
 
-.audience-card p {
-    color: var(--text-secondary);
+.item-learner {
+    --orbit-radius: 100px;
+    animation-delay: -10s;
+}
+
+/* Offset on same ring */
+
+/* Responsive Adjustments for Combined Section */
+@media (max-width: 1024px) {
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        /* Add gap when stacked */
+    }
+
+    .col-flow {
+        padding-right: 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Ensure orbit container fits well on mobile */
+    .col-orbit {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: var(--radius-lg);
+    }
+
+    /* Ensure orbit container fits well on mobile */
+    .col-orbit {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        border-radius: var(--radius-lg);
+    }
+
+    .text-left {
+        text-align: center;
+    }
+
+    .flow-timeline {
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flow-line {
+        display: none;
+    }
+
+    .flow-step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .flow-marker {
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .local-orbit-system {
+        width: 100%;
+        height: 400px;
+        transform: scale(0.8);
+    }
+}
+
+@media (max-width: 480px) {
+    .local-orbit-system {
+        transform: scale(0.6);
+        height: 300px;
+    }
 }
 
 /* Why Love It Section */
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
