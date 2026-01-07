@@ -1,5 +1,6 @@
 # Secrets and sensitive information
 .env
+SETUP_GUIDE.md
 
 # OS metadata files
 .DS_Store
