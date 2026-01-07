@@ -1,4 +1,5 @@
 # Secrets and sensitive information
+env.js
 .env
 SETUP_GUIDE.md
 
