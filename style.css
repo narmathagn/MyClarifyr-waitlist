@@ -626,14 +626,6 @@ section {
         border-radius: var(--radius-lg);
     }
 
-    /* Ensure orbit container fits well on mobile */
-    .col-orbit {
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-        border-radius: var(--radius-lg);
-    }
-
     .text-left {
         text-align: center;
     }
@@ -662,15 +654,52 @@ section {
 
     .local-orbit-system {
         width: 100%;
-        height: 400px;
-        transform: scale(0.8);
+        height: 360px;
+        /* Keep height consistent */
+        /* Scale down for tablets/smaller desktops if needed, but 360px usually fits */
+    }
+
+    /* Grids for Tablet */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     .local-orbit-system {
-        transform: scale(0.6);
+        /* Scale down orbit for small screens to fit 320px devices */
+        transform: scale(0.75);
+        transform-origin: center center;
         height: 300px;
+        width: 300px;
+    }
+
+    .col-orbit {
+        min-height: 340px;
+        /* Adjust container height */
+        padding: var(--spacing-sm);
+    }
+
+    /* Section Typography */
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    /* Stack Benefits on mobile */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -887,20 +916,17 @@ section {
     .email-input {
         width: 100%;
     }
-}
 
-@media (max-width: 480px) {
-    :root {
-        --spacing-lg: 3rem;
-        --spacing-xl: 4rem;
-    }
-
-    .section-title {
-        font-size: 1.75rem;
-    }
-
-    .features-grid {
+    /* Ensure Benefits Grid collapses on 768px (Mobile/Small Tablet) */
+    .benefits-grid {
         grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    /* Ensure Features Grid collapses */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep 2 cols for features on larger mobile? Or 1? Let's go 2 for now, 1 on 480 */
     }
 }
 
