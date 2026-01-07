@@ -1,40 +1,23 @@
 // Google Sheets Configuration
-// The GOOGLE_SCRIPT_URL will be loaded from the .env file
+// The GOOGLE_SCRIPT_URL is loaded from env.js (which is ignored by Git)
 let GOOGLE_SCRIPT_URL = '';
 
 /**
- * Loads and parses the .env file for a static site
+ * Ensures global configuration is available
  */
-async function loadEnv() {
-    try {
-        const response = await fetch('.env');
-        const text = await response.text();
-        const lines = text.split('\n');
-
-        const env = {};
-        lines.forEach(line => {
-            const [key, ...valueParts] = line.split('=');
-            if (key && valueParts.length > 0) {
-                env[key.trim()] = valueParts.join('=').trim();
-            }
-        });
-
-        GOOGLE_SCRIPT_URL = env.GOOGLE_SCRIPT_URL;
+function initConfig() {
+    if (typeof ENV !== 'undefined' && ENV.GOOGLE_SCRIPT_URL) {
+        GOOGLE_SCRIPT_URL = ENV.GOOGLE_SCRIPT_URL;
         console.log('Environment configuration loaded');
         return true;
-    } catch (error) {
-        console.error('Error loading environment configuration:', error);
-        return false;
     }
+    console.warn('Configuration (env.js) not found or invalid.');
+    return false;
 }
 
 // Global initialization
-window.addEventListener('DOMContentLoaded', async () => {
-    const envLoaded = await loadEnv();
-    if (!envLoaded || !GOOGLE_SCRIPT_URL) {
-        console.warn('Configuration not found or invalid. Please ensure .env file is present.');
-    }
-
+window.addEventListener('DOMContentLoaded', () => {
+    initConfig();
     loadWaitlistCount();
     animateOnScroll();
 });
