@@ -1,0 +1,24 @@
+# Secrets and sensitive information
+.env
+
+# OS metadata files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE and Project specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Build/Dist (if applicable)
+dist/
+build/
+out/
